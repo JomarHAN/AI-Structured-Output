@@ -22,7 +22,7 @@ const data = {
     },
     {
       title: "Synchronous Test",
-      url: "synchronous-test",
+      url: "synchronous",
       isActive: false,
     },
     {
