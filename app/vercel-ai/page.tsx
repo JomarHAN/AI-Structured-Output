@@ -5,6 +5,7 @@ import { useState } from "react";
 import { experimental_useObject as useObject } from "@ai-sdk/react";
 import { RecipeSchema } from "@/src/recipeSchema";
 import { Loading } from "@/components/loading";
+import { RecipeCard } from "@/components/recipe-card";
 
 export default function VercelAIPage() {
   const [prompt, setPrompt] = useState("Spashetti Bolognese");
@@ -32,7 +33,15 @@ export default function VercelAIPage() {
         placeholder="What recipe do you want to generate?"
       />
       {isLoading && <Loading />}
-      <div>{JSON.stringify(object)}</div>
+      <RecipeCard
+        recipe={
+          object as {
+            name: string;
+            ingredients: { quantity: string; ingredient: string }[];
+            steps: string[];
+          }
+        }
+      />
     </div>
   );
 }

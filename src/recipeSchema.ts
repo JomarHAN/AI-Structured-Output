@@ -10,7 +10,7 @@ export const RecipeSchema = z.object({
       })
     )
     .describe("List of ingredients"),
-  instructions: z
+  steps: z
     .array(z.string())
     .describe("Markdown content if descipbe the recipe steps")
     .describe("steps of the recipe"),
